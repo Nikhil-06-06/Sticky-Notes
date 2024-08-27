@@ -1,0 +1,125 @@
+@import "../Constants/colors.scss";
+
+@font-face {
+	font-family: monsterrat-thin;
+	src: url('../../public/Fonts/Montserrat-Thin.ttf');
+}
+
+@font-face {
+	font-family: monsterrat-extralight;
+	src: url('../../public/Fonts/Montserrat-ExtraLight.ttf');
+}
+
+@font-face {
+	font-family: monsterrat-light;
+	src: url('../../public/Fonts/Montserrat-Light.ttf');
+}
+
+@font-face {
+	font-family: monsterrat-medium;
+	src: url('../../public/Fonts/Montserrat-Medium.ttf');
+}
+
+@font-face {
+	font-family: monsterrat-semibold;
+	src: url('../../public/Fonts/Montserrat-SemiBold.ttf');
+}
+
+@font-face {
+	font-family: monsterrat-bold;
+	src: url('../../public/Fonts/Montserrat-Bold.ttf');
+}
+
+.app-container {
+	min-width: 100vw;
+	min-height: 100vh;
+	background-color: $color2;
+
+	.nav {
+		height: 60px;
+		box-shadow: 0px 2px 5px black;
+		min-width: 100vw;
+		background-color: $color1;
+		display: flex;
+		align-items: center;
+		padding-left: 25px;
+		color: $color5;
+		font-family: monsterrat-bold;
+		box-sizing: border-box;
+		font-size: 28px;
+		line-height: 36px;
+	}
+
+	.notes-container {
+
+		.new-note-container {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: end;
+
+			.add-new-note-card {
+				height: 320px;
+				width: 280px;
+				background-color: $color5;
+				border-radius: 24px;
+				margin-bottom: 16px;
+				box-sizing: border-box;
+				padding: 16px 20px;
+				transform: translate(300px);
+				transition: all 0.7s ease-in-out;
+
+				.input-box {
+					border: none;
+					background-color: unset;
+					font-family: monsterrat-semibold;
+					font-size: 24px;
+					line-height: 28px;
+					color: $color1;
+					height: 100%;
+					width: 100%;
+
+					&:focus {
+						outline: none;
+					}
+				}
+			}
+
+			.show-add-note-card {
+				transform: translate(0px);
+			}
+
+			.add-btn {
+				height: 50px;
+				width: 50px;
+				background-color: $color1;
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 50%;
+				cursor: pointer;
+				transition: all 0.7s ease-in-out;
+				
+				.line{
+					position: absolute;
+					width: 24px;
+					height: 5px;
+					border-radius: 8px;
+					background-color: $color5;
+				}
+
+				.rotate90{
+					transform: rotate(90deg);
+				}
+			}
+
+			.rotate45 {
+				transform: rotate(225deg);
+			}
+
+		}
+	}
+}
