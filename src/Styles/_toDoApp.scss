@@ -30,6 +30,12 @@
 	src: url('../../public/Fonts/Montserrat-Bold.ttf');
 }
 
+.flex-div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .app-container {
 	min-width: 100vw;
 	min-height: 100vh;
@@ -51,6 +57,8 @@
 	}
 
 	.notes-container {
+		position: relative;
+		height: calc(100vh - 60px);
 
 		.new-note-container {
 			position: fixed;
@@ -61,13 +69,7 @@
 			align-items: end;
 
 			.add-new-note-card {
-				height: 320px;
-				width: 280px;
-				background-color: $color5;
-				border-radius: 24px;
-				margin-bottom: 16px;
-				box-sizing: border-box;
-				padding: 16px 20px;
+				border: 2px solid black;
 				transform: translate(300px);
 				transition: all 0.7s ease-in-out;
 
@@ -80,6 +82,7 @@
 					color: $color1;
 					height: 100%;
 					width: 100%;
+					resize: none;
 
 					&:focus {
 						outline: none;
@@ -91,35 +94,118 @@
 				transform: translate(0px);
 			}
 
-			.add-btn {
-				height: 50px;
-				width: 50px;
-				background-color: $color1;
-				position: relative;
+			.stick-note-button {
+				height: 49px;
+				width: 48px;
 				display: flex;
 				justify-content: center;
-				align-items: center;
+				align-items: end;
+				position: relative;
+				transform: translate(61px);
+				margin-right: 12px;
+				background-color: #399918;
 				border-radius: 50%;
 				cursor: pointer;
 				transition: all 0.7s ease-in-out;
-				
-				.line{
-					position: absolute;
+				box-sizing: border-box;
+				padding-bottom: 14px;
+
+				.tick-sm {
+					width: 12px;
+					height: 5px;
+					border-radius: 8px;
+					background-color: $color5;
+					transform-origin: 100% 50%;
+					transform: rotate(45deg) translate(2px);
+				}
+
+				.tick-bg {
 					width: 24px;
 					height: 5px;
 					border-radius: 8px;
 					background-color: $color5;
-				}
-
-				.rotate90{
-					transform: rotate(90deg);
+					transform-origin: 0% 50%;
+					transform: rotate(-45deg);
 				}
 			}
 
-			.rotate45 {
-				transform: rotate(225deg);
+			.show-stick-btn {
+				transform: translate(0px);
 			}
 
+		}
+
+		.empty-board {
+			font-family: monsterrat-medium;
+			opacity: 0.5;
+			color: $color5;
+			font-size: 24px;
+			line-height: 28px;
+		}
+
+		.board {
+			box-sizing: border-box;
+			width: 100%;
+			height: 100%;
+			overflow: scroll;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+
+			.grid-container {
+				display: flex;
+				align-items: center;
+				justify-content: space-around;
+				flex-wrap: wrap;
+			}
+		}
+
+		.card {
+			height: 320px;
+			width: 280px;
+			background-color: $color5;
+			border-radius: 24px;
+			margin: 36px 16px;
+			box-sizing: border-box;
+			padding: 16px 20px;
+			font-family: monsterrat-semibold;
+			font-size: 24px;
+			line-height: 28px;
+			color: $color1;
+			text-align: center;
+			position: relative;
+			transition: all 0.3s ease-in-out;
+		}
+
+		.add-btn {
+			height: 50px;
+			width: 50px;
+			background-color: $color1;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+			cursor: pointer;
+			transition: all 0.7s ease-in-out;
+
+			.line {
+				position: absolute;
+				width: 24px;
+				height: 5px;
+				border-radius: 8px;
+				background-color: $color5;
+			}
+
+			.rotate90 {
+				transform: rotate(90deg);
+			}
+		}
+
+		.rotate45 {
+			transform: rotate(225deg);
+			background-color: #FF0000;
 		}
 	}
 }

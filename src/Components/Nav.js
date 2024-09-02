@@ -1,8 +1,9 @@
 import React from 'react'
+import { appTitle } from '../Constants/Constants'
 
 function Nav() {
   return (
-    <div className='nav'>To Do List</div>
+    <div className='nav'>{appTitle}</div>
   )
 }
 
